@@ -29,7 +29,7 @@ body {
 .page-header {
   width: 100%;
   height: 100vh;
-  padding-top: 35px;
+  padding-top: 20px;
   background-image: url("../img/header-bg.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -67,6 +67,11 @@ body {
   display: flex;
 }
 
+.nav-close {
+  font-size: 0;
+  color: transparent;
+}
+
 .main-nav li {
   margin-right: 50px;
   text-transform: uppercase;
@@ -88,6 +93,53 @@ body {
 .main-nav a:active {
   color: rgba(255, 255, 255, 0.3);
 }
+
+.nav-toggle {
+  position: absolute;
+  display: none;
+  width: 30px;
+  right: 20px;
+  top: 45px;
+  font-size: 0;
+  color: transparent;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.nav-toggle_item {
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+  display: block;
+}
+
+.nav-toggle_item::before,
+.nav-toggle_item::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  left: 0;
+  z-index: 1;
+}
+
+.nav-toggle_item::before {
+  top: -8px;
+}
+
+.nav-toggle_item::after {
+  bottom: -8px;
+}
+
 
 .btn {
   display: inline-block;
@@ -129,17 +181,25 @@ body {
   border-color: #ffffff;
 }
 
-.promo {
+.promo h1 {
   font-weight: bold;
   font-size: 45px;
   line-height: 55px;
   font-family: "Georgia", serif;
   text-align: center;
+  margin-bottom: 20px;
+  margin-top: 0;
 }
 
-.promo a {
+.promo h1 {
   color: #ffffff;
   text-decoration: none;
+}
+
+.promo .btn {
+  display: block;
+  margin: 0 auto;
+  max-width: 150px;
 }
 
 .features {
@@ -728,7 +788,7 @@ body {
 }
 
 @media (max-width: 1020px) {
-  .promo {
+  .promo h1 {
     font-size: 40px;
   }
 
@@ -757,16 +817,22 @@ body {
 }
 
 @media (max-width: 767px) {
-  .promo {
+  .promo h1 {
     font-size: 35px;
   }
 
-  .header-top {
-    margin-bottom: 80px;
+  .promo .btn {
+    max-width: 120px;
   }
 
-  .main-nav {
-    display: none;
+  .header-top {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 65px;
+  }
+
+  .header-logo {
+    margin-bottom: 30px;
   }
 
   .features ul {
@@ -838,12 +904,78 @@ body {
     grid-template-columns: auto;
   }
 
+  .main-nav {
+    display: none;
+    left: 0;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    padding: 0 12px;
+    background-color: #a38b70;
+    flex-direction: column;
+    margin: 0;
+  }
+
+  .main-nav.active {
+    display: flex;
+  }
+
+  .nav-close {
+    align-self: flex-end;
+    position: relative;
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 25px;
+  }
+
+  .nav-close::before,
+  .nav-close::after {
+    height: 30px;
+    position: absolute;
+    content: "";
+    width: 1px;
+    background-color: white;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  .nav-close::before {
+    transform: rotate(45deg);
+  }
+
+  .nav-close::after {
+    transform: rotate(-45deg);
+  }
+
+  .main-nav li {
+    margin-right: 0;
+    border-bottom: 1px solid #5e5e5e;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 12px 12px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-toggle.active {
+    display: none;
+  }
+
 }
 
 @media (max-width: 575px) {
 
   .container {
     padding: 0 10px;
+  }
+
+  .promo h1 {
+    font-size: 30px;
   }
 
   .section-title {

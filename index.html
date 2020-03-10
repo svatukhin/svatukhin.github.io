@@ -13,21 +13,29 @@
           <div class="header-logo">
             <img src="img/logo.png" alt="The Great Keksby" width="205" height="55">
           </div>
-          <ul class="main-nav">
-            <li><a href="#">Магазин</a></li>
-            <li><a href="#">Каталог</a></li>
-            <li><a href="#">Отзывы</a></li>
+
+          <ul class="main-nav" id="main-nav">
+            <span class="nav-close" id="nav-close">Menu
+            </span>
+            <li><a href="#" data-scroll="#features">Преимущества</a></li>
+            <li><a href="#" data-scroll="#reviews">Отзывы</a></li>
+            <li><a href="#" data-scroll="#catalog">Каталог</a></li>
           </ul>
-          <a class="btn btn-quick-order" href="#">Заказать</a>
+
+          <button class="nav-toggle" id="nav-toggle" type="button">
+            <span class="nav-toggle_item">Menu</span>
+          </button>
+
         </div>
         <div class="promo">
-          <a href="#">Аксессуары для котов<br> Коллекция FW15</a>
+          <h1>Аксессуары для котов<br> Коллекция FW15</h1>
+          <a class="btn btn-quick-order" href="#">Заказать</a>
         </div>
       </div>
     </div>
 
   
-    <div class="features">
+    <div class="features" id="features">
       <div class="container">
         <ul class="feature-items">
           <li class="feature-item feature-choice">
@@ -79,7 +87,7 @@
     </div>
 
   
-    <div class="reviews">
+    <div class="reviews" id="reviews">
       <div class="container">
         <div class="reviews-header">
           <h2 class="section-title">Довольные коты</h2>
@@ -99,7 +107,7 @@
     </div>
 
     
-    <div class="popular-and-price">
+    <div class="popular-and-price" id="catalog">
       <div class="container">
         <div class="popular-header">
           <h2 class="section-title">Популярные товары</h2>
@@ -269,5 +277,8 @@
       </div>
     </div>
   
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>  
+    <script src="js/app.js"></script>
   </body>
 </html>
