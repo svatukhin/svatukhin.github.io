@@ -926,6 +926,7 @@ body {
     margin-top: 20px;
     margin-right: 20px;
     margin-bottom: 25px;
+    width: 30px;
   }
 
   .nav-close::before,
